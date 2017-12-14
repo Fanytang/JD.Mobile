@@ -1,0 +1,56 @@
+/*reset css 重置样式*/
+*,
+::before,
+::after{
+	/*选中所有元素，和伪元素*/
+	margin: 0;
+	padding: 0;
+	/*针对移动端*/
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	/*点击高亮清除*/
+	-webkit-tap-highlight-color: transparent;
+}
+body{
+	font-size: 14px;
+	color: #333;
+	font-family: "microsoft yahei","sans-serif";
+}
+ul,ol{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	color: #333333;
+	font-size: 13px;
+}
+input,textarea{
+				outline: none;
+				border: none;
+				resize: none;
+				/*清除移动端输入框特有样式*/
+				-webkit-appearance: none;
+			}
+/*common css */
+/*.clearfix:after{
+
+　　　　　　content:"";//设置内容为空
+
+　　　　　　height:0;//高度为0
+
+　　　　　　line-height:0;//行高为0
+
+　　　　　　display:block;//将文本转为块级元素
+
+　　　　　　visibility:hidden;//将元素隐藏
+
+　　　　　　clear:both//清除浮动
+
+　　　　　}*/
+.clearfix:after {
+	clear: both;
+	display: block;
+	content: "";
+	height: 0px;
+	overflow: hidden;
+}
