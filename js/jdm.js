@@ -74,6 +74,7 @@ function drag(oDiv, aLi) {
 
 	oDiv.addEventListener('touchstart', function(ev) {
 		clearInterval(int);
+		x = -iNow * aLi.offsetWidth;
 		var id = ev.targetTouches[0].identifier;
 		var disX = ev.targetTouches[0].pageX - x
 		var downX = ev.targetTouches[0].pageX;
@@ -88,7 +89,7 @@ function drag(oDiv, aLi) {
 
 		function fnEnd(ev) {
 			if(ev.changedTouches[0].identifier == id) {
-				//document.removeEventListener('touchmove', fnMove, false);
+				document.removeEventListener('touchmove', fnMove, false);
 				document.removeEventListener('touchend', fnEnd, false);
 				oDiv.style.transition = '.3s all linear';
 				var upX = ev.changedTouches[0].pageX;
