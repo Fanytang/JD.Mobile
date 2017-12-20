@@ -13,6 +13,36 @@ window.onload = function() {
 			ticking = false;
 		}
 	});
+	showtime();
+};
+/*秒杀倒计时*/
+var lefttime = 7200;
+
+function showtime() {
+	var skh = document.getElementById('sk-h');
+	var skm = document.getElementById('sk-m');
+	var sks = document.getElementById('sk-s');
+	var h = Math.floor(lefttime / (60 * 60));
+	var m = Math.floor(lefttime / 60 % 60);
+	var s = Math.floor(lefttime % 60);
+	if(lefttime >= 0) {
+		skh.innerHTML = '0' + h;
+		if(m < 10) {
+			skm.innerHTML = '0' + m;
+		} else {
+			skm.innerHTML = m;
+		}
+		if(s < 10) {
+			sks.innerHTML = '0' + s;
+		} else {
+			sks.innerHTML = s;
+		}
+		--lefttime;
+	} else {
+		clearTimeout(timer);
+	}
+	var timer;
+	timer = setTimeout(showtime, 1000);
 };
 /*轮播图*/
 var iNow = 0;
@@ -55,6 +85,7 @@ function bannerNext() {
 //轮播图小点
 var buttonsUl = document.getElementById("point");
 var buttons = document.getElementsByTagName("li");;
+
 function buttonsShow() {
 	//清除之前的样式
 	for(var i = 10; i < 19; i++) {
@@ -134,17 +165,18 @@ function drag(oDiv, aLi) {
 		}
 		document.addEventListener('touchmove', fnMove, false);
 		document.addEventListener('touchend', fnEnd, false);
-		//ev.preventDefault(); //事件绑定用的阻止默认事件;
+		//ev.preventDefault(); 
 	}, false)
 };
 document.addEventListener('DOMContentLoaded', function() {
 	var oDiv = document.querySelector('#bannerul');
 	var aLi = oDiv.children;
-
+	var skDrag = document.querySelector("#jd-skill-list");
+	seckDrag(skDrag);
 	drag(oDiv, aLi[0]);
 }, false);
 
-//滚动热门
+/*滚动热门*/
 var index = 0;
 
 function jdHotup() {
@@ -168,47 +200,53 @@ function jdHotup() {
 	}
 };
 
-/*function bannerNext() {
-	var sliderUl = document.getElementById("bannerul");
-	var LiNow = sliderUl.style.marginLeft;
-	var LiNowstring = LiNow.substring(0, LiNow.length - 1);
-	var LiNownumber = Number(LiNowstring);
-	iNow++;
-	var result = -100 * (iNow + 1);
-	
-	console.log(result);
-	if(result == -900) {
-		sliderUl.style.marginLeft = 0;
-		sliderUl.style.transition = "margin";
-		setTimeout(function() {
-			sliderUl.style.marginLeft = "-100%";
-			sliderUl.style.transition = "margin .3s";
-		}, 0);
-		iNow = 0;
-	} else {
-		sliderUl.style.marginLeft = result + "%";
-		sliderUl.style.transition = "margin .3s";
-	}
-};*/
-function bannerPre() {
-	var sliderUl = document.getElementById("bannerul");
-	var LiNow = sliderUl.style.marginLeft;
-	var LiNowstring = LiNow.substring(0, LiNow.length - 1);
-	var LiNownumber = Number(LiNowstring);
-	iNow--;
-	var result = -100 * (iNow + 1);
-	console.info(result);
-	if(result == 0) {
-		sliderUl.style.marginLeft = "-900%";
-		sliderUl.style.transition = "margin";
-		setTimeout(function() {
-			sliderUl.style.marginLeft = "-800%";
-			sliderUl.style.transition = "margin .3s";
-		}, 0);
-		iNow = 7;
-	} else {
-		sliderUl.style.marginLeft = result + "%";
-		sliderUl.style.transition = "margin .3s";
-	}
-	//return iNow;
+/*拖动商品*/
+
+var d = 0;
+var Dx;
+var startX;
+
+function seckDrag(skDrag) {
+	skDrag.addEventListener('touchstart', function(ev) {
+		Dx = ev.targetTouches[0].pageX - d;
+		startX = ev.targetTouches[0].pageX;
+	}, false);
+	tMove();
+
+	function tMove() {
+		skDrag.addEventListener('touchmove', function(ev) {
+			d = ev.targetTouches[0].pageX - Dx;
+			skDrag.style.left = d + 'px';
+		}, false);
+	};
+	tEnd();
+
+	function tEnd() {
+		skDrag.addEventListener('touchend', function(ev) {
+			document.removeEventListener('touchmove', tMove, false);
+			document.removeEventListener('touchend', tEnd, false);
+			var endX = ev.changedTouches[0].pageX;
+			var skleft = skDrag.style.left;
+			var skleftstring = skleft.substring(0, skleft.length - 2);
+			var skleftnum = parseInt(skleftstring);
+			var skulWidth = skDrag.offsetWidth;
+			var skscreeWidth = window.screen.width
+			if(skscreeWidth >= 640) {
+				skscreeWidth = 640;
+			}
+			var changeDis = skulWidth - skscreeWidth;
+			if(skleftnum >= 0) {
+				skDrag.style.left = 0;
+				d = 0;
+				skDrag.style.transition = '.3s all linear';
+			} else if(skleftnum <= -changeDis) {
+				skDrag.style.left = -changeDis + 'px';
+				d = -changeDis;
+				skDrag.style.transition = '.3s all linear';
+			}
+			skDrag.addEventListener('transitionend', function() {
+				skDrag.style.transition = 'none';
+			}, false);
+		}, false);
+	};
 };

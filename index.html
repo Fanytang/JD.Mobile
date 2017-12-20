@@ -5,29 +5,25 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
 		<script type="text/javascript">
-			/*(function() {
+			(function() {
 				if(window.screen.width > 640) {
 					document.querySelector('html').style.fontSize = 200 + 'px';
 				} else {
 					document.querySelector('html').style.fontSize = window.screen.width / 3.2 + 'px';
 				}
 			})();
-			window.onresize=function(){
-				if (window.screen.width>640) {
-					document.querySelector('html').style.fontSize=200+'px';
-				}
-				else{document.querySelector('html').style.fontSize =window.screen.width/3.2+'px';}
-			}*/
-			/*window.onload = document.querySelector('html').style.fontSize = window.screen.width / (3.2) + 'px';
 			window.onresize = function() {
-					document.querySelector('html').style.fontSize = window.screen.width / (3.2) + 'px';
-				}*/
+				if(window.screen.width > 640) {
+					document.querySelector('html').style.fontSize = 200 + 'px';
+				} else {
+					document.querySelector('html').style.fontSize = window.screen.width / 3.2 + 'px';
+				}
+			}
 		</script>
 		<title>京东商城</title>
 		<link rel="stylesheet" href="css/index.css" />
 		<link rel="stylesheet" href="css/base.css" />
 		<style></style>
-		<script src="js/jquery-3.2.1.min.js"></script>
 		<script src="js/jdm.js"></script>
 	</head>
 
@@ -35,7 +31,7 @@
 		<!--主容器-->
 		<div class="wrapper">
 			<!--背景色-->
-			<div class="changebgc">	
+			<div class="changebgc">
 				<!--顶部搜索-->
 				<div class="jd-search-container">
 					<div class="jd-search-box-cover"></div>
@@ -54,7 +50,7 @@
 				</div>
 				<!--轮播图-->
 				<div class="jd-slider">
-					<ul id="bannerul">
+					<ul id="bannerul" class="clearfix">
 						<li id="firstli">
 							<a href="#"><img src="img/slider8.jpg" /></a>
 						</li>
@@ -85,7 +81,7 @@
 						<li>
 							<a href="#"><img src="img/slider1.jpg" /></a>
 						</li>
-	
+
 					</ul>
 					<ul id="point">
 						<li class="on" style="margin-left: 0;"></li>
@@ -101,36 +97,62 @@
 				<!--导航栏-->
 				<div class="jd-nav">
 					<nav class="jd-nav-box">
-						<a href="#"><span class="jd-nav-single"><img src="img/nav/nav1.png"/><span>京东超市</span></span></a>
-						<a href="#"><span class="jd-nav-single"><img src="img/nav/nav2.png"/><span>全球购</span></span></a>
-						<a href="#"><span class="jd-nav-single"><img src="img/nav/nav3.png"/><span>京东服饰</span></span></a>
-						<a href="#"><span class="jd-nav-single"><img src="img/nav/nav4.png"/><span>京东生鲜</span></span></a>
-						<a href="#"><span class="jd-nav-single"><img src="img/nav/nav5.png"/><span>京东到家</span></span></a>
-						<a href="#"><span class="jd-nav-single"><img src="img/nav/nav6.png"/><span>充值缴费</span></span></a>
-						<a href="#"><span class="jd-nav-single"><img src="img/nav/nav7.png"/><span>领京豆</span></span></a>
-						<a href="#"><span class="jd-nav-single"><img src="img/nav/nav8.png"/><span>领卷</span></span></a>
-						<a href="#"><span class="jd-nav-single"><img src="img/nav/nav9.png"/><span>赚钱</span></span></a>
-						<a href="#"><span class="jd-nav-single"><img src="img/nav/nav10.png"/><span>物流查询</span></span></a>
+						<a href="#"><span class="jd-nav-single"><img src="img/nav/nav1.png"/><span>京东超市</span></span>
+						</a>
+						<a href="#"><span class="jd-nav-single"><img src="img/nav/nav2.png"/><span>全球购</span></span>
+						</a>
+						<a href="#"><span class="jd-nav-single"><img src="img/nav/nav3.png"/><span>京东服饰</span></span>
+						</a>
+						<a href="#"><span class="jd-nav-single"><img src="img/nav/nav4.png"/><span>京东生鲜</span></span>
+						</a>
+						<a href="#"><span class="jd-nav-single"><img src="img/nav/nav5.png"/><span>京东到家</span></span>
+						</a>
+						<a href="#"><span class="jd-nav-single"><img src="img/nav/nav6.png"/><span>充值缴费</span></span>
+						</a>
+						<a href="#"><span class="jd-nav-single"><img src="img/nav/nav7.png"/><span>领京豆</span></span>
+						</a>
+						<a href="#"><span class="jd-nav-single"><img src="img/nav/nav8.png"/><span>领卷</span></span>
+						</a>
+						<a href="#"><span class="jd-nav-single"><img src="img/nav/nav9.png"/><span>赚钱</span></span>
+						</a>
+						<a href="#"><span class="jd-nav-single"><img src="img/nav/nav10.png"/><span>物流查询</span></span>
+						</a>
 					</nav>
 				</div>
 				<!--大礼包-->
 				<div class="slider-wrapper">
-					<a href="#"><img src="img/slider-gift.gif"/></a>
+					<a href="#"><img src="img/slider-gift.gif" /></a>
 				</div>
 				<!--滚动新闻-->
 				<div class="jd-show-news">
 					<div class="jd-show-box">
-						<a href="#" class="jd-news-tit"><img src="img/jd-news-tit.png"/></a>
+						<a href="#" class="jd-news-tit"><img src="img/jd-news-tit.png" /></a>
 						<div class="scroll-news">
 							<ul class="news-list" id="news-list">
-								<li class="news-item"><a href="#"><span class="red">热门</span>假如在1万英尺高空玩手机</a></li>
-								<li class="news-item" id="firstnewli"><a href="#"><span class="red">热门</span>iPhone X免费送</a></li>
-								<li class="news-item"><a href="#"><span class="red">推荐</span>2018年的电视，没它就变渣！</a></li>
-								<li class="news-item"><a href="#"><span class="red">推荐</span>串标又火了，为什么加个又字？</a></li>
-								<li class="news-item"><a href="#"><span class="red">热门</span>NIKE这个系列放了个大招</a></li>
-								<li class="news-item"><a href="#"><span class="red">推荐</span>腿那么细！全靠这个小心机</a></li>
-								<li class="news-item"><a href="#"><span class="red">热门</span>假如在1万英尺高空玩手机</a></li>
-								<li class="news-item" id="firstnewli"><a href="#"><span class="red">热门</span>iPhone X免费送</a></li>
+								<li class="news-item">
+									<a href="#"><span class="red">热门</span>假如在1万英尺高空玩手机</a>
+								</li>
+								<li class="news-item" id="firstnewli">
+									<a href="#"><span class="red">热门</span>iPhone X免费送</a>
+								</li>
+								<li class="news-item">
+									<a href="#"><span class="red">推荐</span>2018年的电视，没它就变渣！</a>
+								</li>
+								<li class="news-item">
+									<a href="#"><span class="red">推荐</span>串标又火了，为什么加个又字？</a>
+								</li>
+								<li class="news-item">
+									<a href="#"><span class="red">热门</span>NIKE这个系列放了个大招</a>
+								</li>
+								<li class="news-item">
+									<a href="#"><span class="red">推荐</span>腿那么细！全靠这个小心机</a>
+								</li>
+								<li class="news-item">
+									<a href="#"><span class="red">热门</span>假如在1万英尺高空玩手机</a>
+								</li>
+								<li class="news-item" id="firstnewli">
+									<a href="#"><span class="red">热门</span>iPhone X免费送</a>
+								</li>
 							</ul>
 						</div>
 						<a href="#" class="show-more"><i class="line"></i>更多</a>
@@ -141,67 +163,91 @@
 					<!--秒杀logo-->
 					<div class="jd-skill-title ">
 						<a href="#" class="jd-skill-link">
-							<img src="img/skill.png"/>
+							<img src="img/skill.png" />
 							<strong class="skill-nth">12点场</strong>
 							<div class="skill-time">
-								<div class="skill-timer">00</div>
+								<div class="skill-timer" id="sk-h">00</div>
 								<span class="separator">:</span>
-								<div class="skill-timer">00</div>
+								<div class="skill-timer" id="sk-m">00</div>
 								<span class="separator">:</span>
-								<div class="skill-timer">00</div>
+								<div class="skill-timer" id="sk-s">00</div>
 							</div>
 						</a>
 						<a href="#" class="jd-skill-more">京选尖货秒<span></span></a>
 					</div>
 					<!--秒杀内容-->
 					<div class="jd-skill-container">
-						<ul class="jd-skill-list clearfix">
+						<ul class="jd-skill-list clearfix" id="jd-skill-list">
 							<li>
-								<div class="skill-item-img"><a href="#"><img src="img/skillimg/skill-img1.jpg" alt="" /></a></div>
+								<div class="skill-item-img">
+									<a href="#"><img src="img/skillimg/skill-img1.jpg" alt="" /></a>
+								</div>
 								<div class="skill-price"><span class="skill-new-price"><em>¥</em>245</span><span class="skill-old-price"><em>¥</em>398</span></div>
 							</li>
 							<li>
-								<div class="skill-item-img"><a href="#"><img src="img/skillimg/skill-img2.jpg" alt="" /></a></div>
+								<div class="skill-item-img">
+									<a href="#"><img src="img/skillimg/skill-img2.jpg" alt="" /></a>
+								</div>
 								<div class="skill-price"><span class="skill-new-price"><em>¥</em>29.9</span><span class="skill-old-price"><em>¥</em>49.9</span></div>
 							</li>
 							<li>
-								<div class="skill-item-img"><a href="#"><img src="img/skillimg/skill-img3.jpg" alt="" /></a></div>
+								<div class="skill-item-img">
+									<a href="#"><img src="img/skillimg/skill-img3.jpg" alt="" /></a>
+								</div>
 								<div class="skill-price"><span class="skill-new-price"><em>¥</em>89</span><span class="skill-old-price"><em>¥</em>229</span></div>
 							</li>
 							<li>
-								<div class="skill-item-img"><a href="#"><img src="img/skillimg/skill-img4.jpg" alt="" /></a></div>
+								<div class="skill-item-img">
+									<a href="#"><img src="img/skillimg/skill-img4.jpg" alt="" /></a>
+								</div>
 								<div class="skill-price"><span class="skill-new-price"><em>¥</em>58.8</span><span class="skill-old-price"><em>¥</em>99</span></div>
 							</li>
 							<li>
-								<div class="skill-item-img"><a href="#"><img src="img/skillimg/skill-img5.jpg" alt="" /></a></div>
+								<div class="skill-item-img">
+									<a href="#"><img src="img/skillimg/skill-img5.jpg" alt="" /></a>
+								</div>
 								<div class="skill-price"><span class="skill-new-price"><em>¥</em>245</span><span class="skill-old-price"><em>¥</em>398</span></div>
 							</li>
 							<li>
-								<div class="skill-item-img"><a href="#"><img src="img/skillimg/skill-img6.jpg" alt="" /></a></div>
+								<div class="skill-item-img">
+									<a href="#"><img src="img/skillimg/skill-img6.jpg" alt="" /></a>
+								</div>
 								<div class="skill-price"><span class="skill-new-price"><em>¥</em>245</span><span class="skill-old-price"><em>¥</em>398</span></div>
 							</li>
 							<li>
-								<div class="skill-item-img"><a href="#"><img src="img/skillimg/skill-img1.jpg" alt="" /></a></div>
+								<div class="skill-item-img">
+									<a href="#"><img src="img/skillimg/skill-img1.jpg" alt="" /></a>
+								</div>
 								<div class="skill-price"><span class="skill-new-price"><em>¥</em>245</span><span class="skill-old-price"><em>¥</em>398</span></div>
 							</li>
 							<li>
-								<div class="skill-item-img"><a href="#"><img src="img/skillimg/skill-img2.jpg" alt="" /></a></div>
+								<div class="skill-item-img">
+									<a href="#"><img src="img/skillimg/skill-img2.jpg" alt="" /></a>
+								</div>
 								<div class="skill-price"><span class="skill-new-price"><em>¥</em>245</span><span class="skill-old-price"><em>¥</em>398</span></div>
 							</li>
 							<li>
-								<div class="skill-item-img"><a href="#"><img src="img/skillimg/skill-img3.jpg" alt="" /></a></div>
+								<div class="skill-item-img">
+									<a href="#"><img src="img/skillimg/skill-img3.jpg" alt="" /></a>
+								</div>
 								<div class="skill-price"><span class="skill-new-price"><em>¥</em>245</span><span class="skill-old-price"><em>¥</em>398</span></div>
 							</li>
 							<li>
-								<div class="skill-item-img"><a href="#"><img src="img/skillimg/skill-img4.jpg" alt="" /></a></div>
+								<div class="skill-item-img">
+									<a href="#"><img src="img/skillimg/skill-img4.jpg" alt="" /></a>
+								</div>
 								<div class="skill-price"><span class="skill-new-price"><em>¥</em>245</span><span class="skill-old-price"><em>¥</em>398</span></div>
 							</li>
 							<li>
-								<div class="skill-item-img"><a href="#"><img src="img/skillimg/skill-img5.jpg" alt="" /></a></div>
+								<div class="skill-item-img">
+									<a href="#"><img src="img/skillimg/skill-img5.jpg" alt="" /></a>
+								</div>
 								<div class="skill-price"><span class="skill-new-price"><em>¥</em>245</span><span class="skill-old-price"><em>¥</em>398</span></div>
 							</li>
 							<li>
-								<div class="skill-item-img"><a href="#"><img src="img/skillimg/skill-img6.jpg" alt="" /></a></div>
+								<div class="skill-item-img">
+									<a href="#"><img src="img/skillimg/skill-img6.jpg" alt="" /></a>
+								</div>
 								<div class="skill-price"><span class="skill-new-price"><em>¥</em>245</span><span class="skill-old-price"><em>¥</em>398</span></div>
 							</li>
 						</ul>
@@ -267,7 +313,9 @@
 									<a href="#">
 										<div class="pic-text">
 											<div class="pic-text-first"><strong>新品首发</strong></div>
-											<div class="pic-text-last"><p>iPhone X</p></div>
+											<div class="pic-text-last">
+												<p>iPhone X</p>
+											</div>
 										</div>
 										<div class="pic-second-img">
 											<img src="img/floor/jd-floor-pic8.jpg" alt="" />
@@ -288,8 +336,7 @@
 				<div class="recommend">
 					<div class="recommendForU">
 						<span class="recommend-text">
-							<span class="recommend-text-img"></span>
-							为您推荐
+							<span class="recommend-text-img"></span> 为您推荐
 						</span>
 					</div>
 					<ul class="jd-similar-ul">
@@ -689,7 +736,7 @@
 								</div>
 							</a>
 						</li>
-						
+
 					</ul>
 				</div>
 			</div>
@@ -697,4 +744,3 @@
 	</body>
 
 </html>
-		
