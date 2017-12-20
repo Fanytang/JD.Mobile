@@ -67,7 +67,6 @@ function bannerNext() {
 	var sliderLi = document.getElementById("firstli");
 	iNow++;
 	var result = -1 * (iNow);
-	console.log(iNow);
 	if(result <= -7) {
 		sliderUl.style.transform = 'translateX(' + -7 * sliderLi.offsetWidth + 'px)';
 		sliderUl.style.transition = '.3s all linear';
@@ -109,7 +108,6 @@ function drag(oDiv, aLi) {
 		var id = ev.targetTouches[0].identifier;
 		var disX = ev.targetTouches[0].pageX - x
 		var downX = ev.targetTouches[0].pageX;
-		console.log(downX);
 
 		function fnMove(ev) {
 			if(ev.targetTouches[0].identifier == id) {
@@ -161,7 +159,6 @@ function drag(oDiv, aLi) {
 			}
 
 			autoplay();
-			console.log(iNow);
 		}
 		document.addEventListener('touchmove', fnMove, false);
 		document.addEventListener('touchend', fnEnd, false);
@@ -184,7 +181,6 @@ function jdHotup() {
 	var newsLi = document.getElementById("firstnewli");
 	index++;
 	var hotup = -1 * (index);
-	console.log(index);
 	if(hotup <= -5) {
 		newsList.style.transform = 'translateY(' + -5 * 23 + 'px)';
 		newsList.style.transition = '.3s all linear';
