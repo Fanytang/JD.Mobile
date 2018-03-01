@@ -19,7 +19,7 @@ window.onload = function() {
 /*ajax请求数据*/
 function get(){
 	var xhr = new XMLHttpRequest();
-	xhr.open('get','../myproduct.json');
+	xhr.open('get','myproduct.json');
 	xhr.onreadystatechange = function(){
 		if (xhr.readyState==4 && xhr.status==200) {
 			var res=xhr.responseText;
