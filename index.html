@@ -25,6 +25,8 @@
 		<link rel="stylesheet" href="css/base.css" />
 		<style></style>
 		<script src="js/jdm.js"></script>
+		<script src="js/jquery-1.12.4.js"></script>
+		<script src="js/template-web.js"></script>
 	</head>
 
 	<body>
@@ -325,12 +327,6 @@
 							</div>
 						</div>
 					</div>
-					<!--<div class="jd-floor-container">
-						<div class="jd-floor-pic-item">
-							<div class="jd-floor-rank"></div>
-							<div class="jd-floor-new"></div>
-						</div>
-					</div>-->
 				</div>
 				<!--商品推荐-->
 				<div class="recommend">
@@ -339,7 +335,7 @@
 							<span class="recommend-text-img"></span> 为您推荐
 						</span>
 					</div>
-					<ul class="jd-similar-ul">
+					<ul class="jd-similar-ul clearfix" id="jd-similar-ul">
 						<li class="jd-similar-li">
 							<a href="#">
 								<div class="jd-similar-product">
@@ -350,397 +346,46 @@
 									<p class="jd-similar-product-info">
 										<span class="jd-similar-product-price">
 											¥
-											<span class="big-price">4299</span><span class="small-price">.00</span>
+											<span class="big-price">4299.00</span><span class="small-price"></span>
 										</span>
 									</p>
 									<p class="praise-info">
 										<span class="praise-percent">
 											<span>好评率99%</span>
 										</span>
-										<span class="guess-btm">看相似</span>
+										<span class="guess-btm" onclick="get()">看相似</span>
 									</p>
 								</div>
 							</a>
 						</li>
-						<li class="jd-similar-li">
-							<a href="#">
-								<div class="jd-similar-product">
-									<div class="jd-similar-img"><img src="img/recommend/recommend1.jpg" alt="" /></div>
-									<span class="jd-similar-product-text">
-										三星（SAMSUNG） 三星 SAMSUNG S8+ Plus 6.2英寸 双曲屏 手机 幻紫灰 美版 4G+64G  现货
-									</span>
-									<p class="jd-similar-product-info">
-										<span class="jd-similar-product-price">
-											¥
-											<span class="big-price">4299</span><span class="small-price">.00</span>
-										</span>
-									</p>
-									<p class="praise-info">
-										<span class="praise-percent">
-											<span>好评率99%</span>
-										</span>
-										<span class="guess-btm">看相似</span>
-									</p>
-								</div>
-							</a>
-						</li>
-						<li class="jd-similar-li">
-							<a href="#">
-								<div class="jd-similar-product">
-									<div class="jd-similar-img"><img src="img/recommend/recommend1.jpg" alt="" /></div>
-									<span class="jd-similar-product-text">
-										三星（SAMSUNG） 三星 SAMSUNG S8+ Plus 6.2英寸 双曲屏 手机 幻紫灰 美版 4G+64G  现货
-									</span>
-									<p class="jd-similar-product-info">
-										<span class="jd-similar-product-price">
-											¥
-											<span class="big-price">4299</span><span class="small-price">.00</span>
-										</span>
-									</p>
-									<p class="praise-info">
-										<span class="praise-percent">
-											<span>好评率99%</span>
-										</span>
-										<span class="guess-btm">看相似</span>
-									</p>
-								</div>
-							</a>
-						</li>
-						<li class="jd-similar-li">
-							<a href="#">
-								<div class="jd-similar-product">
-									<div class="jd-similar-img"><img src="img/recommend/recommend1.jpg" alt="" /></div>
-									<span class="jd-similar-product-text">
-										三星（SAMSUNG） 三星 SAMSUNG S8+ Plus 6.2英寸 双曲屏 手机 幻紫灰 美版 4G+64G  现货
-									</span>
-									<p class="jd-similar-product-info">
-										<span class="jd-similar-product-price">
-											¥
-											<span class="big-price">4299</span><span class="small-price">.00</span>
-										</span>
-									</p>
-									<p class="praise-info">
-										<span class="praise-percent">
-											<span>好评率99%</span>
-										</span>
-										<span class="guess-btm">看相似</span>
-									</p>
-								</div>
-							</a>
-						</li>
-						<li class="jd-similar-li">
-							<a href="#">
-								<div class="jd-similar-product">
-									<div class="jd-similar-img"><img src="img/recommend/recommend1.jpg" alt="" /></div>
-									<span class="jd-similar-product-text">
-										三星（SAMSUNG） 三星 SAMSUNG S8+ Plus 6.2英寸 双曲屏 手机 幻紫灰 美版 4G+64G  现货
-									</span>
-									<p class="jd-similar-product-info">
-										<span class="jd-similar-product-price">
-											¥
-											<span class="big-price">4299</span><span class="small-price">.00</span>
-										</span>
-									</p>
-									<p class="praise-info">
-										<span class="praise-percent">
-											<span>好评率99%</span>
-										</span>
-										<span class="guess-btm">看相似</span>
-									</p>
-								</div>
-							</a>
-						</li>
-						<li class="jd-similar-li">
-							<a href="#">
-								<div class="jd-similar-product">
-									<div class="jd-similar-img"><img src="img/recommend/recommend1.jpg" alt="" /></div>
-									<span class="jd-similar-product-text">
-										三星（SAMSUNG） 三星 SAMSUNG S8+ Plus 6.2英寸 双曲屏 手机 幻紫灰 美版 4G+64G  现货
-									</span>
-									<p class="jd-similar-product-info">
-										<span class="jd-similar-product-price">
-											¥
-											<span class="big-price">4299</span><span class="small-price">.00</span>
-										</span>
-									</p>
-									<p class="praise-info">
-										<span class="praise-percent">
-											<span>好评率99%</span>
-										</span>
-										<span class="guess-btm">看相似</span>
-									</p>
-								</div>
-							</a>
-						</li>
-						<li class="jd-similar-li">
-							<a href="#">
-								<div class="jd-similar-product">
-									<div class="jd-similar-img"><img src="img/recommend/recommend1.jpg" alt="" /></div>
-									<span class="jd-similar-product-text">
-										三星（SAMSUNG） 三星 SAMSUNG S8+ Plus 6.2英寸 双曲屏 手机 幻紫灰 美版 4G+64G  现货
-									</span>
-									<p class="jd-similar-product-info">
-										<span class="jd-similar-product-price">
-											¥
-											<span class="big-price">4299</span><span class="small-price">.00</span>
-										</span>
-									</p>
-									<p class="praise-info">
-										<span class="praise-percent">
-											<span>好评率99%</span>
-										</span>
-										<span class="guess-btm">看相似</span>
-									</p>
-								</div>
-							</a>
-						</li>
-						<li class="jd-similar-li">
-							<a href="#">
-								<div class="jd-similar-product">
-									<div class="jd-similar-img"><img src="img/recommend/recommend1.jpg" alt="" /></div>
-									<span class="jd-similar-product-text">
-										三星（SAMSUNG） 三星 SAMSUNG S8+ Plus 6.2英寸 双曲屏 手机 幻紫灰 美版 4G+64G  现货
-									</span>
-									<p class="jd-similar-product-info">
-										<span class="jd-similar-product-price">
-											¥
-											<span class="big-price">4299</span><span class="small-price">.00</span>
-										</span>
-									</p>
-									<p class="praise-info">
-										<span class="praise-percent">
-											<span>好评率99%</span>
-										</span>
-										<span class="guess-btm">看相似</span>
-									</p>
-								</div>
-							</a>
-						</li>
-						<li class="jd-similar-li">
-							<a href="#">
-								<div class="jd-similar-product">
-									<div class="jd-similar-img"><img src="img/recommend/recommend1.jpg" alt="" /></div>
-									<span class="jd-similar-product-text">
-										三星（SAMSUNG） 三星 SAMSUNG S8+ Plus 6.2英寸 双曲屏 手机 幻紫灰 美版 4G+64G  现货
-									</span>
-									<p class="jd-similar-product-info">
-										<span class="jd-similar-product-price">
-											¥
-											<span class="big-price">4299</span><span class="small-price">.00</span>
-										</span>
-									</p>
-									<p class="praise-info">
-										<span class="praise-percent">
-											<span>好评率99%</span>
-										</span>
-										<span class="guess-btm">看相似</span>
-									</p>
-								</div>
-							</a>
-						</li>
-						<li class="jd-similar-li">
-							<a href="#">
-								<div class="jd-similar-product">
-									<div class="jd-similar-img"><img src="img/recommend/recommend1.jpg" alt="" /></div>
-									<span class="jd-similar-product-text">
-										三星（SAMSUNG） 三星 SAMSUNG S8+ Plus 6.2英寸 双曲屏 手机 幻紫灰 美版 4G+64G  现货
-									</span>
-									<p class="jd-similar-product-info">
-										<span class="jd-similar-product-price">
-											¥
-											<span class="big-price">4299</span><span class="small-price">.00</span>
-										</span>
-									</p>
-									<p class="praise-info">
-										<span class="praise-percent">
-											<span>好评率99%</span>
-										</span>
-										<span class="guess-btm">看相似</span>
-									</p>
-								</div>
-							</a>
-						</li>
-						<li class="jd-similar-li">
-							<a href="#">
-								<div class="jd-similar-product">
-									<div class="jd-similar-img"><img src="img/recommend/recommend1.jpg" alt="" /></div>
-									<span class="jd-similar-product-text">
-										三星（SAMSUNG） 三星 SAMSUNG S8+ Plus 6.2英寸 双曲屏 手机 幻紫灰 美版 4G+64G  现货
-									</span>
-									<p class="jd-similar-product-info">
-										<span class="jd-similar-product-price">
-											¥
-											<span class="big-price">4299</span><span class="small-price">.00</span>
-										</span>
-									</p>
-									<p class="praise-info">
-										<span class="praise-percent">
-											<span>好评率99%</span>
-										</span>
-										<span class="guess-btm">看相似</span>
-									</p>
-								</div>
-							</a>
-						</li>
-						<li class="jd-similar-li">
-							<a href="#">
-								<div class="jd-similar-product">
-									<div class="jd-similar-img"><img src="img/recommend/recommend1.jpg" alt="" /></div>
-									<span class="jd-similar-product-text">
-										三星（SAMSUNG） 三星 SAMSUNG S8+ Plus 6.2英寸 双曲屏 手机 幻紫灰 美版 4G+64G  现货
-									</span>
-									<p class="jd-similar-product-info">
-										<span class="jd-similar-product-price">
-											¥
-											<span class="big-price">4299</span><span class="small-price">.00</span>
-										</span>
-									</p>
-									<p class="praise-info">
-										<span class="praise-percent">
-											<span>好评率99%</span>
-										</span>
-										<span class="guess-btm">看相似</span>
-									</p>
-								</div>
-							</a>
-						</li>
-						<li class="jd-similar-li">
-							<a href="#">
-								<div class="jd-similar-product">
-									<div class="jd-similar-img"><img src="img/recommend/recommend1.jpg" alt="" /></div>
-									<span class="jd-similar-product-text">
-										三星（SAMSUNG） 三星 SAMSUNG S8+ Plus 6.2英寸 双曲屏 手机 幻紫灰 美版 4G+64G  现货
-									</span>
-									<p class="jd-similar-product-info">
-										<span class="jd-similar-product-price">
-											¥
-											<span class="big-price">4299</span><span class="small-price">.00</span>
-										</span>
-									</p>
-									<p class="praise-info">
-										<span class="praise-percent">
-											<span>好评率99%</span>
-										</span>
-										<span class="guess-btm">看相似</span>
-									</p>
-								</div>
-							</a>
-						</li>
-						<li class="jd-similar-li">
-							<a href="#">
-								<div class="jd-similar-product">
-									<div class="jd-similar-img"><img src="img/recommend/recommend1.jpg" alt="" /></div>
-									<span class="jd-similar-product-text">
-										三星（SAMSUNG） 三星 SAMSUNG S8+ Plus 6.2英寸 双曲屏 手机 幻紫灰 美版 4G+64G  现货
-									</span>
-									<p class="jd-similar-product-info">
-										<span class="jd-similar-product-price">
-											¥
-											<span class="big-price">4299</span><span class="small-price">.00</span>
-										</span>
-									</p>
-									<p class="praise-info">
-										<span class="praise-percent">
-											<span>好评率99%</span>
-										</span>
-										<span class="guess-btm">看相似</span>
-									</p>
-								</div>
-							</a>
-						</li>
-						<li class="jd-similar-li">
-							<a href="#">
-								<div class="jd-similar-product">
-									<div class="jd-similar-img"><img src="img/recommend/recommend1.jpg" alt="" /></div>
-									<span class="jd-similar-product-text">
-										三星（SAMSUNG） 三星 SAMSUNG S8+ Plus 6.2英寸 双曲屏 手机 幻紫灰 美版 4G+64G  现货
-									</span>
-									<p class="jd-similar-product-info">
-										<span class="jd-similar-product-price">
-											¥
-											<span class="big-price">4299</span><span class="small-price">.00</span>
-										</span>
-									</p>
-									<p class="praise-info">
-										<span class="praise-percent">
-											<span>好评率99%</span>
-										</span>
-										<span class="guess-btm">看相似</span>
-									</p>
-								</div>
-							</a>
-						</li>
-						<li class="jd-similar-li">
-							<a href="#">
-								<div class="jd-similar-product">
-									<div class="jd-similar-img"><img src="img/recommend/recommend1.jpg" alt="" /></div>
-									<span class="jd-similar-product-text">
-										三星（SAMSUNG） 三星 SAMSUNG S8+ Plus 6.2英寸 双曲屏 手机 幻紫灰 美版 4G+64G  现货
-									</span>
-									<p class="jd-similar-product-info">
-										<span class="jd-similar-product-price">
-											¥
-											<span class="big-price">4299</span><span class="small-price">.00</span>
-										</span>
-									</p>
-									<p class="praise-info">
-										<span class="praise-percent">
-											<span>好评率99%</span>
-										</span>
-										<span class="guess-btm">看相似</span>
-									</p>
-								</div>
-							</a>
-						</li>
-						<li class="jd-similar-li">
-							<a href="#">
-								<div class="jd-similar-product">
-									<div class="jd-similar-img"><img src="img/recommend/recommend1.jpg" alt="" /></div>
-									<span class="jd-similar-product-text">
-										三星（SAMSUNG） 三星 SAMSUNG S8+ Plus 6.2英寸 双曲屏 手机 幻紫灰 美版 4G+64G  现货
-									</span>
-									<p class="jd-similar-product-info">
-										<span class="jd-similar-product-price">
-											¥
-											<span class="big-price">4299</span><span class="small-price">.00</span>
-										</span>
-									</p>
-									<p class="praise-info">
-										<span class="praise-percent">
-											<span>好评率99%</span>
-										</span>
-										<span class="guess-btm">看相似</span>
-									</p>
-								</div>
-							</a>
-						</li>
-						<li class="jd-similar-li">
-							<a href="#">
-								<div class="jd-similar-product">
-									<div class="jd-similar-img"><img src="img/recommend/recommend1.jpg" alt="" /></div>
-									<span class="jd-similar-product-text">
-										三星（SAMSUNG） 三星 SAMSUNG S8+ Plus 6.2英寸 双曲屏 手机 幻紫灰 美版 4G+64G  现货
-									</span>
-									<p class="jd-similar-product-info">
-										<span class="jd-similar-product-price">
-											¥
-											<span class="big-price">4299</span><span class="small-price">.00</span>
-										</span>
-									</p>
-									<p class="praise-info">
-										<span class="praise-percent">
-											<span>好评率99%</span>
-										</span>
-										<span class="guess-btm">看相似</span>
-									</p>
-								</div>
-							</a>
-						</li>
-
 					</ul>
+					<div style="text-align: center; margin: 10px 0;font-size: 16px;" onclick="get()">点击加载</div>
 				</div>
 			</div>
 		</div>
 	</body>
-
+	<script type="text/html" id="template">
+		<li class="jd-similar-li" id="jd-similar-li">
+			<a href="#">
+				<div class="jd-similar-product">
+					<div class="jd-similar-img"><img src="{{img2}}" alt="" /></div>
+					<span class="jd-similar-product-text">
+						{{title}}
+					</span>
+					<p class="jd-similar-product-info">
+						<span class="jd-similar-product-price">
+							¥
+							<span class="big-price">{{price}}</span><span class="small-price"></span>
+						</span>
+					</p>
+					<p class="praise-info">
+						<span class="praise-percent">
+							<span>好评率99%</span>
+						</span>
+						<span class="guess-btm">看相似</span>
+					</p>
+				</div>
+			</a>
+		</li>
+	</script>
 </html>

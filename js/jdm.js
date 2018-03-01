@@ -14,7 +14,26 @@ window.onload = function() {
 		}
 	});
 	showtime();
+	get();
 };
+/*ajax请求数据*/
+function get(){
+	var xhr = new XMLHttpRequest();
+	xhr.open('get','myproduct.json');
+	xhr.onreadystatechange = function(){
+		if (xhr.readyState==4 && xhr.status==200) {
+			var res=xhr.responseText;
+			var getdata=JSON.parse(res);
+			for (var i = 0 ; i<getdata.length; i++) {
+			var result = template('template', getdata[i]);
+			$('#jd-similar-ul').append(result);
+			}
+		}
+	};
+	xhr.send(null);
+
+}
+
 /*秒杀倒计时*/
 var lefttime = 7200;
 
